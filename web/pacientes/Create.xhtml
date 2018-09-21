@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PacientesCreateDlg" widgetVar="PacientesCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreatePacientesTitle}">
+            <h:form id="PacientesCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{pacientesController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreatePacientesLabel_idPaciente}" for="idPaciente" />
+                        <p:inputText id="idPaciente" value="#{pacientesController.selected.idPaciente}" title="#{bundle.CreatePacientesTitle_idPaciente}" required="true" requiredMessage="#{bundle.CreatePacientesRequiredMessage_idPaciente}"/>
+                        <p:outputLabel value="#{bundle.CreatePacientesLabel_nome}" for="nome" />
+                        <p:inputText id="nome" value="#{pacientesController.selected.nome}" title="#{bundle.CreatePacientesTitle_nome}" required="true" requiredMessage="#{bundle.CreatePacientesRequiredMessage_nome}"/>
+                        <p:outputLabel value="#{bundle.CreatePacientesLabel_dataNascimento}" for="dataNascimento" />
+                        <p:calendar id="dataNascimento" pattern="dd/MM/yyyy" value="#{pacientesController.selected.dataNascimento}" title="#{bundle.EditPacientesTitle_dataNascimento}" required="true" requiredMessage="#{bundle.EditPacientesRequiredMessage_dataNascimento}" showOn="button"/>
+                    
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{pacientesController.create}" value="#{bundle.Save}" update="display,:PacientesListForm:datalist,:growl" oncomplete="handleSubmit(args,'PacientesCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PacientesCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

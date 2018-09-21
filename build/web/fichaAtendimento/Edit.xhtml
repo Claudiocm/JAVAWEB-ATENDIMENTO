@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FichaAtendimentoEditDlg" widgetVar="FichaAtendimentoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditFichaAtendimentoTitle}">
+            <h:form id="FichaAtendimentoEditForm">
+                <h:panelGroup >
+                    <h:panelGrid columns="2" id="display" rendered="#{fichaAtendimentoController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditFichaAtendimentoLabel_idFicha}" for="idFicha" />
+                        <p:inputText id="idFicha" value="#{fichaAtendimentoController.selected.idFicha}" title="#{bundle.EditFichaAtendimentoTitle_idFicha}" required="true" requiredMessage="#{bundle.EditFichaAtendimentoRequiredMessage_idFicha}"/>
+                        <p:outputLabel value="#{bundle.EditFichaAtendimentoLabel_dataAtendimento}" for="dataAtendimento" />
+                        <p:calendar id="dataAtendimento" pattern="MM/dd/yyyy" value="#{fichaAtendimentoController.selected.dataAtendimento}" title="#{bundle.EditFichaAtendimentoTitle_dataAtendimento}" required="true" requiredMessage="#{bundle.EditFichaAtendimentoRequiredMessage_dataAtendimento}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditFichaAtendimentoLabel_idUnidade}" for="idUnidade" />
+                        <p:selectOneMenu id="idUnidade" value="#{fichaAtendimentoController.selected.idUnidade}" required="true" requiredMessage="#{bundle.EditFichaAtendimentoRequiredMessage_idUnidade}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{unidadeSaudeController.itemsAvailableSelectOne}"
+                                           var="idUnidadeItem"
+                                           itemValue="#{idUnidadeItem}"/>
+                        </p:selectOneMenu>
+                    </h:panelGrid>
+                    <p:commandButton actionListener="#{fichaAtendimentoController.update}" value="#{bundle.Save}" update="display,:FichaAtendimentoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'FichaAtendimentoEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="FichaAtendimentoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

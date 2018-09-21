@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MedicosCreateDlg" widgetVar="MedicosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateMedicosTitle}">
+            <h:form id="MedicosCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{medicosController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateMedicosLabel_idMedico}" for="idMedico" />
+                        <p:inputText id="idMedico" value="#{medicosController.selected.idMedico}" title="#{bundle.CreateMedicosTitle_idMedico}" required="true" requiredMessage="#{bundle.CreateMedicosRequiredMessage_idMedico}"/>
+                        <p:outputLabel value="#{bundle.CreateMedicosLabel_nome}" for="nome" />
+                        <p:inputText id="nome" value="#{medicosController.selected.nome}" title="#{bundle.CreateMedicosTitle_nome}" required="true" requiredMessage="#{bundle.CreateMedicosRequiredMessage_nome}"/>
+                        <p:outputLabel value="#{bundle.CreateMedicosLabel_crm}" for="crm" />
+                        <p:inputText id="crm" value="#{medicosController.selected.crm}" title="#{bundle.CreateMedicosTitle_crm}" required="true" requiredMessage="#{bundle.CreateMedicosRequiredMessage_crm}"/>
+                        <p:outputLabel value="#{bundle.CreateMedicosLabel_fichaAtendimentoIdFicha}" for="fichaAtendimentoIdFicha" />
+                        <p:selectOneMenu id="fichaAtendimentoIdFicha" value="#{medicosController.selected.fichaAtendimentoIdFicha}" >
+                            <f:selectItems value="#{fichaAtendimentoController.itemsAvailableSelectOne}"
+                                           var="fichaAtendimentoIdFichaItem"
+                                           itemValue="#{fichaAtendimentoIdFichaItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{medicosController.create}" value="#{bundle.Save}" update="display,:MedicosListForm:datalist,:growl" oncomplete="handleSubmit(args,'MedicosCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="MedicosCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

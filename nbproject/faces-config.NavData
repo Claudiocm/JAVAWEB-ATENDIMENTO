@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="itensFicha/Edit.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="medicos/View.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="tipousuario/Edit.xhtml" x="400" y="900" zoom="true"/>
+        <Node id="usuario/List.xhtml" x="398" y="95" zoom="true"/>
+        <Node id="unidadeSaude/Edit.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="medicos/List.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="usuario/View.xhtml" x="1150" y="450" zoom="true"/>
+        <Node id="usuario/Create.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="unidadeSaude/Create.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="itensFicha/List.xhtml" x="1900" y="150" zoom="true"/>
+        <Node id="itensFicha/Create.xhtml" x="1650" y="150" zoom="true"/>
+        <Node id="itensFicha/View.xhtml" x="650" y="600" zoom="true"/>
+        <Node id="unidadeSaude/View.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="fichaAtendimento/Create.xhtml" x="900" y="600" zoom="true"/>
+        <Node id="template.xhtml" x="650" y="750" zoom="true"/>
+        <Node id="tipousuario/View.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="medicos/Create.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="tipousuario/List.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="unidadeSaude/List.xhtml" x="1400" y="450" zoom="true"/>
+        <Node id="pacientes/View.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="index.xhtml" x="900" y="450" zoom="true"/>
+        <Node id="pacientes/List.xhtml" x="400" y="750" zoom="true"/>
+        <Node id="pacientes/Create.xhtml" x="1650" y="300" zoom="true"/>
+        <Node id="usuario/Edit.xhtml" x="150" y="600" zoom="true"/>
+        <Node id="pacientes/Edit.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="fichaAtendimento/List.xhtml" x="150" y="900" zoom="true"/>
+        <Node id="login.xhtml" x="150" y="36" zoom="true"/>
+        <Node id="fichaAtendimento/View.xhtml" x="150" y="1050" zoom="true"/>
+        <Node id="fichaAtendimento/Edit.xhtml" x="1150" y="150" zoom="true"/>
+        <Node id="tipousuario/Create.xhtml" x="1400" y="300" zoom="true"/>
+        <Node id="medicos/Edit.xhtml" x="400" y="450" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UnidadeSaudeViewDlg" widgetVar="UnidadeSaudeViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewUnidadeSaudeTitle}">
+            <h:form id="UnidadeSaudeViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{unidadeSaudeController.selected != null}">
+                        <h:outputText value="#{bundle.ViewUnidadeSaudeLabel_idUnidade}"/>
+                        <h:outputText value="#{unidadeSaudeController.selected.idUnidade}" title="#{bundle.ViewUnidadeSaudeTitle_idUnidade}"/>
+                        <h:outputText value="#{bundle.ViewUnidadeSaudeLabel_nome}"/>
+                        <h:outputText value="#{unidadeSaudeController.selected.nome}" title="#{bundle.ViewUnidadeSaudeTitle_nome}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="UnidadeSaudeViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

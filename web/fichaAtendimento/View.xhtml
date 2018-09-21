@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FichaAtendimentoViewDlg" widgetVar="FichaAtendimentoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewFichaAtendimentoTitle}">
+            <h:form id="FichaAtendimentoViewForm">
+                <h:panelGroup  >
+                    <h:panelGrid id="display" columns="2" rendered="#{fichaAtendimentoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewFichaAtendimentoLabel_idFicha}"/>
+                        <h:outputText value="#{fichaAtendimentoController.selected.idFicha}" title="#{bundle.ViewFichaAtendimentoTitle_idFicha}"/>
+                        <h:outputText value="#{bundle.ViewFichaAtendimentoLabel_dataAtendimento}"/>
+                        <h:outputText value="#{fichaAtendimentoController.selected.dataAtendimento}" title="#{bundle.ViewFichaAtendimentoTitle_dataAtendimento}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewFichaAtendimentoLabel_idUnidade}"/>
+                        <h:outputText value="#{fichaAtendimentoController.selected.idUnidade.nome}" title="#{bundle.ViewFichaAtendimentoTitle_idUnidade}"/>
+                    </h:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="FichaAtendimentoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

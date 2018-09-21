@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ItensFichaCreateDlg" widgetVar="ItensFichaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateItensFichaTitle}">
+            <h:form id="ItensFichaCreateForm">
+                <h:panelGroup >
+                    <h:panelGrid id="display" columns="2" rendered="#{itensFichaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateItensFichaLabel_idFicha}" for="idFicha" />
+                        <p:selectOneMenu id="idFicha" value="#{itensFichaController.selected.idFicha}" required="true" requiredMessage="#{bundle.EditItensFichaRequiredMessage_idFicha}">
+                            <f:selectItems value="#{fichaAtendimentoController.itemsAvailableSelectOne}"
+                                           var="idFichaItem"
+                                           itemValue="#{idFichaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateItensFichaLabel_idPaciente}" for="idPaciente" />
+                        <p:selectOneMenu id="idPaciente" value="#{itensFichaController.selected.idPaciente}" required="true" requiredMessage="#{bundle.EditItensFichaRequiredMessage_idPaciente}">
+                            <f:selectItems value="#{pacientesController.itemsAvailableSelectOne}"
+                                           var="idPacienteItem"
+                                           itemValue="#{idPacienteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateItensFichaLabel_idItens}" for="idItens" />
+                        <p:inputText id="idItens" value="#{itensFichaController.selected.idItens}" title="#{bundle.CreateItensFichaTitle_idItens}" required="true" requiredMessage="#{bundle.CreateItensFichaRequiredMessage_idItens}"/>
+                        <p:outputLabel value="#{bundle.CreateItensFichaLabel_descricao}" for="descricao" />
+                        <p:inputTextarea rows="4" cols="30" id="descricao" value="#{itensFichaController.selected.descricao}" title="#{bundle.CreateItensFichaTitle_descricao}" required="true" requiredMessage="#{bundle.CreateItensFichaRequiredMessage_descricao}"/>
+                        <p:outputLabel value="#{bundle.CreateItensFichaLabel_conclusao}" for="conclusao" />
+                        <p:inputTextarea rows="4" cols="30" id="conclusao" value="#{itensFichaController.selected.conclusao}" title="#{bundle.CreateItensFichaTitle_conclusao}" required="true" requiredMessage="#{bundle.CreateItensFichaRequiredMessage_conclusao}"/>
+                        <p:outputLabel value="#{bundle.CreateItensFichaLabel_hora}" for="hora" />
+                        <p:calendar id="hora" pattern="HH:mm:ss" value="#{itensFichaController.selected.hora}" title="#{bundle.EditItensFichaTitle_hora}" required="true" requiredMessage="#{bundle.EditItensFichaRequiredMessage_hora}" showOn="button"/>
+                        
+                    </h:panelGrid>
+                    <p:commandButton actionListener="#{itensFichaController.create}" value="#{bundle.Save}" update="display,:ItensFichaListForm:datalist,:growl" oncomplete="handleSubmit(args,'ItensFichaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ItensFichaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

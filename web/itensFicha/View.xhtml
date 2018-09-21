@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ItensFichaViewDlg" widgetVar="ItensFichaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewItensFichaTitle}">
+            <h:form id="ItensFichaViewForm">
+                <h:panelGroup >
+                    <h:panelGrid id="display" columns="4" rendered="#{itensFichaController.selected != null}">
+                        <h:outputText style="color: green;" value="#{bundle.ViewItensFichaLabel_idFicha}"/>
+                        <h:outputText value="#{itensFichaController.selected.idFicha}" title="#{bundle.ViewItensFichaTitle_idFicha}"/>
+                        <h:outputText style="color: green;" value="Atendimento"/>
+                        <h:outputText value="#{itensFichaController.selected.idFicha.dataAtendimento}" title="Data de Atendimento">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </h:outputText>
+                        <h:outputText style="color: green;" value="Unidade"/>
+                        <h:outputText value="#{itensFichaController.selected.idFicha.idUnidade.nome}" title="Unidade de Saúde"/>
+                        <h:outputText style="color: green;" value="Nome"/>
+                        <h:outputText value="#{itensFichaController.selected.idPaciente.nome}" title="Nome"/>
+                        <h:outputText style="color: green;" value="Nascimento"/>
+                        <h:outputText value="#{itensFichaController.selected.idPaciente.dataNascimento}" title="Data de Nascimento">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </h:outputText>
+
+                        <h:outputText style="color: green;" value="#{bundle.ViewItensFichaLabel_idItens}"/>
+                        <h:outputText value="#{itensFichaController.selected.idItens}" title="#{bundle.ViewItensFichaTitle_idItens}"/>
+                        <h:outputText style="color: green;" value="#{bundle.ViewItensFichaLabel_descricao}"/>
+                        <h:outputText value="#{itensFichaController.selected.descricao}" title="#{bundle.ViewItensFichaTitle_descricao}"/>
+                        <h:outputText style="color: green;" value="#{bundle.ViewItensFichaLabel_conclusao}"/>
+                        <h:outputText value="#{itensFichaController.selected.conclusao}" title="#{bundle.ViewItensFichaTitle_conclusao}"/>
+                        <h:outputText style="color: green;" value="#{bundle.ViewItensFichaLabel_hora}"/>
+                        <h:outputText value="#{itensFichaController.selected.hora}"  title="#{bundle.ViewItensFichaTitle_hora}">
+                            <f:convertDateTime pattern="HH:mm:ss" />
+                        </h:outputText>
+                    </h:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ItensFichaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

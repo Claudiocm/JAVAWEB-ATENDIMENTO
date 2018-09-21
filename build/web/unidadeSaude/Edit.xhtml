@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UnidadeSaudeEditDlg" widgetVar="UnidadeSaudeEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditUnidadeSaudeTitle}">
+            <h:form id="UnidadeSaudeEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{unidadeSaudeController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditUnidadeSaudeLabel_idUnidade}" for="idUnidade" />
+                        <p:inputText id="idUnidade" value="#{unidadeSaudeController.selected.idUnidade}" title="#{bundle.EditUnidadeSaudeTitle_idUnidade}" required="true" requiredMessage="#{bundle.EditUnidadeSaudeRequiredMessage_idUnidade}"/>
+                        <p:outputLabel value="#{bundle.EditUnidadeSaudeLabel_nome}" for="nome" />
+                        <p:inputText id="nome" value="#{unidadeSaudeController.selected.nome}" title="#{bundle.EditUnidadeSaudeTitle_nome}" required="true" requiredMessage="#{bundle.EditUnidadeSaudeRequiredMessage_nome}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{unidadeSaudeController.update}" value="#{bundle.Save}" update="display,:UnidadeSaudeListForm:datalist,:growl" oncomplete="handleSubmit(args, 'UnidadeSaudeEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="UnidadeSaudeEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
