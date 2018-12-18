@@ -1,6 +1,6 @@
 # JAVAWEB-ATENDIMENTO
 JAVA WEB (JPA,JSF,PRIMEFACES)
-O presente projeto é uma simples de aplicação de atendimento médico contendo banco de dados com MySQL, usando linguagem Java e frameworks jsf, primefaces e acesso por login.
+O presente projeto é uma simples aplicação de atendimento médico contendo banco de dados com MySQL, usando linguagem Java e frameworks jsf, primefaces e acesso por login.
 
 Para iniciar o projeto é preciso preparar o ambiente de desenvolvimento
 
